@@ -12,6 +12,7 @@ import { Link } from "expo-router";
 import { Listing } from "@/interfaces/listing";
 import { Ionicons } from "@expo/vector-icons";
 import Animated, { FadeInRight, FadeOutLeft } from "react-native-reanimated";
+import { defaultStyles } from "@/constants/Styles";
 
 interface Props {
   listings: any[];
@@ -23,7 +24,7 @@ const Listings = ({ listings: items, category }: Props) => {
   const listRef = useRef<FlatList>(null);
 
   useEffect(() => {
-    console.log ("category", category);
+    console.log("category", category);
     setLoading(true);
 
     setTimeout(() => {
@@ -34,7 +35,11 @@ const Listings = ({ listings: items, category }: Props) => {
   const renderRow: ListRenderItem<Listing> = ({ item }) => (
     <Link href={`/listing/${item.id}`} asChild>
       <TouchableOpacity>
-        <Animated.View style={styles.listing} entering={FadeInRight} exiting={FadeOutLeft}>
+        <Animated.View
+          style={styles.listing}
+          entering={FadeInRight}
+          exiting={FadeOutLeft}
+        >
           <Image source={{ uri: item.medium_url }} style={styles.image} />
           <TouchableOpacity
             style={{ position: "absolute", right: 30, top: 30 }}
@@ -67,7 +72,7 @@ const Listings = ({ listings: items, category }: Props) => {
   );
 
   return (
-    <View style={styles.container}>
+    <View style={defaultStyles.container}>
       <FlatList
         renderItem={renderRow}
         ref={listRef}
@@ -90,5 +95,4 @@ const styles = StyleSheet.create({
     height: 300,
     borderRadius: 10,
   },
-  container: {},
 });

@@ -19,7 +19,7 @@ const Page = () => {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <View style={{ flex: 1, marginTop: 95 }}>
+      <View style={{ flex: 1, marginTop: 45 }}>
         <Stack.Screen
           options={{
             header: () => <ExploreHeader onCategoryChanged={onDateChange} />,

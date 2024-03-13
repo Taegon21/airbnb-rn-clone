@@ -4,7 +4,7 @@ import BottomSheet from "@gorhom/bottom-sheet";
 import Listings from "./Listings";
 import { Listing } from "@/interfaces/listing";
 import Colors from "@/constants/Colors";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 interface Props {
